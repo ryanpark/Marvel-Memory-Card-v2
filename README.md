@@ -1,4 +1,4 @@
-# react-webpack-babel
+# Marvel Memory Cards Game
 Simple React Webpack Babel Starter Kit
 
 Tired of complicated starters with 200MB of dependencies which are hard to understand and modify?
