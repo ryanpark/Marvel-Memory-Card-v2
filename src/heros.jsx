@@ -1,6 +1,14 @@
 import styles from './index.scss';
 import React from 'react';
 
+Array.prototype.shuffle = function() {
+  let m = this.length, i;
+  while (m) {
+    i = (Math.random() * m--) >>> 0;
+    [this[m], this[i]] = [this[i], this[m]]
+  }
+  return this;
+}
 
 export default class Heros extends React.Component {
  
@@ -11,7 +19,7 @@ export default class Heros extends React.Component {
     })
     return (
       <div>
-        <ul className="list-inline">{lists}</ul>
+        <ul className="list-inline">{lists.shuffle()}</ul>
       </div>
     )
   }
