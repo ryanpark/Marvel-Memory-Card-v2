@@ -21,7 +21,7 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <h1>Memory Cards Game</h1>
         {this.state.data.length == 0 ? 'loading..' : <Heros list= {this.state.data} />}
       </div>
