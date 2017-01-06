@@ -4,8 +4,78 @@
     color: white;
     padding: 5px;
 }
-
+.listItem  {
+    padding:0px;
+    li{
+       display:list-item;
+    }
+}
 .container {
     width: 800px;
     margin: 0 auto;
+}
+.thumbnail {
+    border:1px solid grey; padding:2px;
+}
+.cardsContainer {
+    margin:30px 0 0 0;
+}
+.card {
+  position: relative;
+  float: left;
+  padding-bottom: 25%;
+  width: 25%;
+  text-align: center;
+}
+.effect__click {
+    border: 1px solid white;
+}
+.flipped .card__front {
+          -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+.flipped .card__back {
+        -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+:global .flipped.card.effect__click {
+    border:1px solid white;
+}
+/* click effect */
+:global .flipped .card__front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+:global .flipped .card__back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.card__front,
+.card__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card__front,
+.card__back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.3s;
+          transition: transform 0.3s;
+}
+
+.card__front {
+  background-color: #ff5078;
+}
+
+.card__back {
+  background-color: #1e1e1e;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
 }
