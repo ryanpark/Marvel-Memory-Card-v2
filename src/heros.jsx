@@ -5,31 +5,56 @@ import Card from './card.jsx';
 export default class Heros extends React.Component {
   constructor(props) {
     super(props)
-    this.state = ({selectedId: '', primary: false, reset: false});
+    this.state = ({selectedId: {a:'',b:''}, primary: false, reset: false});
   }
   resetCard() {
       alert('no-match')
   }
+  componentWillUpdate(nextProps, nextState) {
+  //  console.log(nextProps, nextState)
+  }
   selectedCard(id) {
-    this.setState({selectedId: id});
     
+    this.setState({
+      selectedId : {
+        a: id,
+        b: this.state.selectedId.b
+      }
+    });
+    if (this.state.selectedId.a.toString().length !== 0) {
+      this.setState({
+      selectedId : {
+        a: this.state.selectedId.a,
+        b: id
+      }
+    });
+    }
+    
+    console.log(this.state.selectedId)
+    /*
     if (this.state.primary == false) {
         return this.setState({primary: true})
     } else {
-      if (id == this.state.selectedId) {
-        alert('match')
-      } else {
-        this.resetCard();
-      }
-      this.setState({primary: false}) 
-    }
+      this.setState({selectedCard: id , primary: false})
+      //this.setState({primary: false}) 
+    }*/
   }
   render() {
+    
+     let condition = false;
+     
      const lists = this.props.list.concat(this.props.list).map((e,i) => {
      if ((e.thumbnail.path).includes('image_not_available')) {
        return false;
      }
-       return <Card reset={this.state.reset} detail={e} key={i} card={i} selectedCard= {this.selectedCard.bind(this)} ref="cardLists"/> 
+     
+     
+       if (e.id == this.state.selectedId.a || e.id == this.state.selectedId.b) {
+          condition = true; 
+       } else {
+          condition = false;
+       }
+       return <Card reset={this.state.reset} flipped= {condition} selectedId={this.state.selectedId} detail={e} key={i} card={i} selectedCard= {this.selectedCard.bind(this)} /> 
     })
     return (
       <div className={styles.cardsContainer}>
