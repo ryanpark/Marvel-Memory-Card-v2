@@ -4,7 +4,7 @@ import React from 'react';
 export default class Card extends React.Component {
     constructor(props) {
         super(props)
-        this.state = ({flipped: false})  
+        this.state = ({flipped: false, deg : Math.floor(Math.random() * 360) + 1})  
     }
     flippCard() {
       this.setState({flipped: true});
@@ -15,10 +15,18 @@ export default class Card extends React.Component {
            this.setState({flipped: false})
        }
     }
-    render() {                                              
+   getStyles() {
+    return {
+        transform: 'rotate('+ this.state.deg +'deg)'
+    }    
+   }
+   test() {
+       console.log('done');
+   }
+   render() {                                              
         return (
             <li>
-                <div onClick={this.flippCard.bind(this)} className={(this.state.flipped == true ? styles.flipped : ' ') + ' '  + styles.card + ' ' + styles.effect__click}>
+                <div onClick={ this.props.disableCard == false ? this.flippCard.bind(this) : this.test.bind(this) } style={this.getStyles()} className={(this.state.flipped == true || this.props.disableCard == true  ? styles.flipped : ' ') + ' '  + styles.card + ' ' + styles.effect__click}>
                     <div className={styles.card__front}>
                         <span className={styles.card__text}>{this.props.detail.name}</span>
                     </div>

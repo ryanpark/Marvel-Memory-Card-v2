@@ -11,7 +11,7 @@
     }
 }
 .container {
-    width: 800px;
+    width: 1170px;
     margin: 0 auto;
 }
 .thumbnail {
@@ -23,8 +23,9 @@
 .card {
   position: relative;
   float: left;
-  padding-bottom: 25%;
-  width: 25%;
+  padding-bottom: 15%;
+  width: 15%;
+  margin: 15px 20px;
   text-align: center;
 }
 .effect__click {

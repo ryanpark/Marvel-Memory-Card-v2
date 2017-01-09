@@ -32,9 +32,11 @@ export default class App extends React.Component {
   render() {
     return (
       <div className={styles.container}>
+      <div className="row">
         <h1>Memory Cards Game</h1>
         <button className="btn btn-primary" onClick={this.startGame.bind(this)}>Bring the Heros</button>
         {this.state.data.length == 0 ? '' : <Heros list= {this.state.data} />}
+        </div>
       </div>
     )
   }
