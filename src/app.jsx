@@ -23,7 +23,12 @@ export default class App extends React.Component {
      })
      .then((res) => res.json())
      .then((data) => {
-        const cards = data.data.results.shuffle();
+        const cards = data.data.results.filter(function(e) {
+           if ((e.thumbnail.path).includes('image_not_available')) {
+              return false;
+           } 
+           return e;
+        }).shuffle();
         this.setState({'data': cards});
       }).catch(function(err){
         console.log(err);

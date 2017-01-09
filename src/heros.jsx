@@ -7,8 +7,10 @@ export default class Heros extends React.Component {
     super(props)
     this.state = ({selectedId: '', reset: false, matchId: [] });
   }
-  resetCard() {
-      alert('no-match')
+  componentWillUpdate(nextProps, nextState) {
+     if (nextState.matchId.length == this.props.list.length) {
+        alert('Good Stuff!')
+     }
   }
   selectedCard(id) {
 
@@ -29,23 +31,18 @@ export default class Heros extends React.Component {
      } 
   }
   render() {
-    
-     let disable = false;
-    
+     
      const lists = this.props.list.concat(this.props.list).map((e,i) => {
-     if ((e.thumbnail.path).includes('image_not_available')) {
-       return false;
-     }
-     if (this.state.matchId.includes(e.id)) {
-        disable = true;     
-     } else {
-        disable = false;
-     }
-     
-     return <Card reset={this.state.reset} disableCard= {disable} selectedId={this.state.selectedId} detail={e} key={i} card={i} selectedCard= {this.selectedCard.bind(this)} />  
-     
       
+     return <Card reset={this.state.reset} 
+                  disableCard= {this.state.matchId.includes(e.id)} 
+                  selectedId={this.state.selectedId} 
+                  detail={e} 
+                  key={i} 
+                  card={i} 
+                  selectedCard= {this.selectedCard.bind(this)} />
     })
+    
     return (
       <div className={styles.cardsContainer}>
         <ul className={styles.listItem + ' ' + 'list-inline'}>{lists}</ul>

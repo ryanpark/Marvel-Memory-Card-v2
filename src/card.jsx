@@ -20,13 +20,12 @@ export default class Card extends React.Component {
         transform: 'rotate('+ this.state.deg +'deg)'
     }    
    }
-   test() {
-       console.log('done');
-   }
    render() {                                              
         return (
             <li>
-                <div onClick={ this.props.disableCard == false ? this.flippCard.bind(this) : this.test.bind(this) } style={this.getStyles()} className={(this.state.flipped == true || this.props.disableCard == true  ? styles.flipped : ' ') + ' '  + styles.card + ' ' + styles.effect__click}>
+                <div onClick={ this.props.disableCard == false ? this.flippCard.bind(this) : null } 
+                     style={this.getStyles()} 
+                     className={(this.state.flipped == true || this.props.disableCard == true  ? styles.flipped : ' ') + ' '  + styles.card + ' ' + styles.effect__click}>
                     <div className={styles.card__front}>
                         <span className={styles.card__text}>{this.props.detail.name}</span>
                     </div>
@@ -38,4 +37,5 @@ export default class Card extends React.Component {
         );   
     }
 }
+
 
