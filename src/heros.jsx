@@ -5,39 +5,31 @@ import Card from './card.jsx';
 export default class Heros extends React.Component {
   constructor(props) {
     super(props)
-    this.state = ({selectedId: {a:'',b:''}, primary: false, reset: false});
+    this.state = ({selectedId: '', reset: false});
   }
   resetCard() {
       alert('no-match')
   }
-  componentWillUpdate(nextProps, nextState) {
-  //  console.log(nextProps, nextState)
-  }
   selectedCard(id) {
-    
-    this.setState({
-      selectedId : {
-        a: id,
-        b: this.state.selectedId.b
-      }
-    });
-    if (this.state.selectedId.a.toString().length !== 0) {
-      this.setState({
-      selectedId : {
-        a: this.state.selectedId.a,
-        b: id
-      }
-    });
-    }
-    
-    console.log(this.state.selectedId)
-    /*
-    if (this.state.primary == false) {
-        return this.setState({primary: true})
-    } else {
-      this.setState({selectedCard: id , primary: false})
-      //this.setState({primary: false}) 
-    }*/
+
+     const pId = this.state.selectedId;
+     const self = this;
+
+     this.setState({selectedId: id})
+
+     if (pId.length == 0) {
+       return 
+     } else {
+        if (pId == id) {
+          alert('match');
+        } else{
+          setTimeout(function() {
+             self.setState({reset: true})
+             self.setState({reset: false})
+          }, 1000);
+        }
+        this.setState({selectedId:''})
+     }
   }
   render() {
     
@@ -47,14 +39,7 @@ export default class Heros extends React.Component {
      if ((e.thumbnail.path).includes('image_not_available')) {
        return false;
      }
-     
-     
-       if (e.id == this.state.selectedId.a || e.id == this.state.selectedId.b) {
-          condition = true; 
-       } else {
-          condition = false;
-       }
-       return <Card reset={this.state.reset} flipped= {condition} selectedId={this.state.selectedId} detail={e} key={i} card={i} selectedCard= {this.selectedCard.bind(this)} /> 
+       return <Card reset={this.state.reset}  selectedId={this.state.selectedId} detail={e} key={i} card={i} selectedCard= {this.selectedCard.bind(this)} /> 
     })
     return (
       <div className={styles.cardsContainer}>
