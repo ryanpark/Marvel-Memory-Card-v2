@@ -5,15 +5,14 @@ import Card from './card.jsx';
 export default class Heros extends React.Component {
   constructor(props) {
     super(props)
-    this.state = ({selectedId: '', reset: false, matchId: [] });
-  }
-  componentWillUpdate(nextProps, nextState) {
-     if (nextState.matchId.length == this.props.list.length) {
-        alert('Good Stuff!')
-     }
+    this.state = ({
+                   selectedId: '', 
+                   reset: false, 
+                   matchId: []
+                  });
   }
   selectedCard(id) {
-
+    
      const pId = this.state.selectedId;
      
      this.setState({selectedId: id})
@@ -45,6 +44,7 @@ export default class Heros extends React.Component {
     
     return (
       <div className={styles.cardsContainer}>
+        {this.state.matchId.length == this.props.list.length ? <div className={styles.alert_success_handle + ' ' + 'alert alert-success'} role="alert"><h2>Well Done!</h2></div> : null}
         <ul className={styles.listItem + ' ' + 'list-inline'}>{lists}</ul>
       </div>
     )

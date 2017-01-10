@@ -15,9 +15,10 @@ Array.prototype.shuffle = function() {
 export default class App extends React.Component {
    constructor(props) {
      super(props)
-     this.state = ({'data':''});
+     this.state = ({'data':'', restart: false, reset: false});
    }
    startGame() {
+     this.setState({spinner: true})
      return fetch(Service.url, {
         method: 'GET'
      })
@@ -29,18 +30,22 @@ export default class App extends React.Component {
            } 
            return e;
         }).shuffle();
-        this.setState({'data': cards});
+        this.setState({'data': cards, restart: true, spinner: false});
       }).catch(function(err){
         console.log(err);
      });
+   }
+   restartGame() {
+     this.setState({reset: true})
    }
   render() {
     return (
       <div className={styles.container}>
       <div className="row">
         <h1>Memory Cards Game</h1>
-        <button className="btn btn-primary" onClick={this.startGame.bind(this)}>Bring the Heros</button>
-        {this.state.data.length == 0 ? '' : <Heros list= {this.state.data} />}
+        <button className="btn btn-primary" onClick={this.state.restart ? this.restartGame.bind(this): this.startGame.bind(this)}> {this.state.restart ? 'Start Over':'Bring the Heros'}</button>
+        {this.state.spinner == true ? <div className={styles.loader}>Loading...</div> : null }
+        {this.state.data.length == 0 ? null : <Heros list= {this.state.data} reset= {this.state.reset} />}
         </div>
       </div>
     )
