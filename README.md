@@ -2,7 +2,7 @@
 
 Memory Cards Game built in React Webpack Babel 
 
-Fetch RESTFul Marvel API [Marvel API](https://developer.marvel.com) to display the Marvel Characters Cards
+RESTFul [Marvel API](https://developer.marvel.com) to display the Marvel Characters Cards
 
 ![alt tag] (https://raw.githubusercontent.com/ryanpark/Marvel-Memory-Card-v2/master/src/board.png)
 
@@ -18,7 +18,7 @@ Fetch RESTFul Marvel API [Marvel API](https://developer.marvel.com) to display t
 ### To run
 
 
-* Then install the dependencies:
+* Install the dependencies:
 
 ```
 npm install

@@ -1,5 +1,5 @@
 import styles from './index.scss';
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 export default class Card extends React.Component {
     constructor(props) {
@@ -35,4 +35,12 @@ export default class Card extends React.Component {
              </li>
         );   
     }
+}
+
+Card.propTypes = {
+  card: PropTypes.number,
+  detail: PropTypes.object,
+  disableCard: PropTypes.bool,
+  reset: PropTypes.bool,
+  selectedCard: PropTypes.func
 }

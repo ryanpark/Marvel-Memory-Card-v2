@@ -1,5 +1,5 @@
 import styles from './index.scss';
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Card from './card.jsx';
 
 export default class Heros extends React.Component {
@@ -49,4 +49,8 @@ export default class Heros extends React.Component {
       </div>
     )
   }
+}
+
+Heros.propTypes = {
+  list: PropTypes.array
 }
