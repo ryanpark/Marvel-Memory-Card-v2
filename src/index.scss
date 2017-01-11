@@ -1,3 +1,7 @@
+:global body {
+  background: #eee;
+}
+
 .redBg {
     background-color: red;
     border-radius: 5px;
@@ -69,6 +73,9 @@
           backface-visibility: hidden;
   -webkit-transition: -webkit-transform 0.3s;
           transition: transform 0.3s;
+          display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card__front {
@@ -99,9 +106,9 @@
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
-  border-top: 1.1em solid #eee;
-  border-right: 1.1em solid #eee;
-  border-bottom: 1.1em solid #eee;
+  border-top: 1.1em solid #fff;
+  border-right: 1.1em solid #fff;
+  border-bottom: 1.1em solid #fff;
   border-left: 1.1em solid #006699;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);

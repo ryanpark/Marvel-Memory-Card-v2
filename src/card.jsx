@@ -26,8 +26,7 @@ export default class Card extends React.Component {
                 <div onClick={ this.props.disableCard == false ? this.flippCard.bind(this) : null } 
                      style={this.getStyles()} 
                      className={(this.state.flipped == true || this.props.disableCard == true  ? styles.flipped : ' ') + ' '  + styles.card + ' ' + styles.effect__click}>
-                    <div className={styles.card__front}>
-                        <span className={styles.card__text}>{this.props.detail.name}</span>
+                    <div className={styles.card__front}><span className={styles.card__text}></span>
                     </div>
                     <div className={styles.card__back}>
                         <span className={styles.card__text}> <img className={styles.thumbnail} width="150px" src={this.props.detail.thumbnail.path + '.' + this.props.detail.thumbnail.extension} alt={this.props.detail.name}/></span>

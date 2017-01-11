@@ -15,7 +15,7 @@ Array.prototype.shuffle = function() {
 export default class App extends React.Component {
    constructor(props) {
      super(props)
-     this.state = ({'data':'', restart: false, reset: false});
+     this.state = ({'data':'', restart: false, resetCards: false});
    }
    startGame() {
      this.setState({spinner: true})
@@ -36,7 +36,7 @@ export default class App extends React.Component {
      });
    }
    restartGame() {
-     this.setState({reset: true})
+   
    }
   render() {
     return (
