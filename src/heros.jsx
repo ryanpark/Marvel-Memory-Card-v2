@@ -18,7 +18,7 @@ export default class Heros extends React.Component {
      this.setState({selectedId: id})
 
      if (pId.length !== 0) {
-       if (pId == id) {
+       if (pId === id) {
           this.setState({matchId: this.state.matchId.concat([id])});
         } else{
           setTimeout(function() {
@@ -26,12 +26,12 @@ export default class Heros extends React.Component {
              this.setState({reset: false})
           }.bind(this), 1000)
         }
-        this.setState({selectedId:''}) 
+        this.setState({selectedId: ''}) 
      } 
   }
   render() {
      
-     const lists = this.props.list.concat(this.props.list).map((e,i) => {
+     const lists = this.props.list.concat(this.props.list).map((e, i) => {
       
      return <Card reset={this.state.reset} 
                   disableCard= {this.state.matchId.includes(e.id)} 
@@ -44,7 +44,7 @@ export default class Heros extends React.Component {
     
     return (
       <div className={styles.cardsContainer}>
-        {this.state.matchId.length == this.props.list.length ? <div className={styles.alert_success_handle + ' ' + 'alert alert-success'} role="alert"><h2>Well Done!</h2></div> : null}
+        {this.state.matchId.length === this.props.list.length ? <div className={styles.alert_success_handle + ' ' + 'alert alert-success'} role="alert"><h2>Well Done!</h2></div> : null}
         <ul className={styles.listItem + ' ' + 'list-inline'}>{lists}</ul>
       </div>
     )
