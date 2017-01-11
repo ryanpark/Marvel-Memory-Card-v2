@@ -4,7 +4,7 @@ Memory Cards Game built in React Webpack Babel
 
 Fetch RESTFul Marvel API [Marvel API](https://developer.marvel.com) to display the Marvel Characters Cards
 
-![alt tag] (https://raw.githubusercontent.com/ryanpark/Marvel-Memory-Card-v2/src/board.png)
+(https://raw.githubusercontent.com/ryanpark/Marvel-Memory-Card-v2/master/src/board.png)
 
 
 ### What's in it?
