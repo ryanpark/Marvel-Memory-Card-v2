@@ -39,6 +39,7 @@ loaders.push({
 	]
 });
 
+
 module.exports = {
 	entry: [
 		'react-hot-loader/patch',
